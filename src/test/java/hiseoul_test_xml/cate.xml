@@ -1,0 +1,39 @@
+
+
+<!DOCTYPE cate[
+
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT UUID (#PCDATA)>
+<!ELEMENT InsertData (#PCDATA)>
+<!ELEMENT Update (#PCDATA)>
+<!ELEMENT Write (#PCDATA)>
+<!ELEMENT Updater (#PCDATA)>
+<!ELEMENT Goal (#PCDATA)>
+
+<!ATTLIST name username CDATA #REQUIRED>
+<!ATTLIST type usertype CDATA #REQUIRED>
+<!ATTLIST UUID userUUID CDATA #REQUIRED>
+<!ATTLIST InsertData userInsertData CDATA #REQUIRED>
+<!ATTLIST Update update CDATA #REQUIRED>
+<!ATTLIST Write writername CDATA #REQUIRED>
+<!ATTLIST Updater updatername CDATA #REQUIRED>
+<!ATTLIST Goal goal CDATA #REQUIRED>
+
+]>
+
+
+
+<cate>
+<name>피카츄</name>
+<type>전기 포켓몬</type>
+<UUID>전설의 용사</UUID>
+<InsertData>사람 지나간다</InsertData>
+<Update>2022-02-11</Update>
+<Write>한명 두명</Write>
+<Updater>정충원</Updater>
+<Goal>사람수 카운트 완료</Goal>
+</cate>
+
+

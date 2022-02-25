@@ -1,0 +1,40 @@
+
+
+
+<!DOCTYPE Pcount [
+<!ELEMENT Pcount (timeset, UUID, regionUUID,cateUUID,CCTVUUID,pcount_Pcount,perPcount,InsertData,Update,Write)>
+<!ELEMENT timeset (#PCDATA)>
+<!ELEMENT UUID (#PCDATA)>
+<!ELEMENT regionUUID (#PCDATA)>
+<!ELEMENT cateUUID (#PCDATA)>
+<!ELEMENT CCTVUUID (#PCDATA)>
+<!ELEMENT pcount_Pcount (#PCDATA)>
+<!ELEMENT perPcount (#PCDATA)>
+<!ELEMENT InsertData (#PCDATA)>
+<!ELEMENT Update (#PCDATA)>
+<!ELEMENT Write (#PCDATA)>
+
+<!ATTLIST timeset timeset CDATA #REQUIRED>
+<!ATTLIST UUID userUUID CDATA #REQUIRED>
+<!ATTLIST regionUUID regionUUID CDATA #REQUIRED>
+<!ATTLIST cateUUID cateUUID CDATA #REQUIRED>
+<!ATTLIST CCTVUUID CCTVUUID CDATA #REQUIRED>
+<!ATTLIST Pcount Pcount CDATA #REQUIRED>
+<!ATTLIST perPcount perPcount CDATA #REQUIRED>
+<!ATTLIST InsertData userInsertData CDATA #REQUIRED>
+<!ATTLIST Update update CDATA #REQUIRED>
+<!ATTLIST Write writername CDATA #REQUIRED>
+]>
+
+<Pcount>
+<timeset>호랑이 담배피던 시절</timeset>
+<UUID>전설의 용사</UUID>
+<regionUUID>이세카이</regionUUID>
+<cateUUID>사륜안</cateUUID>
+<CCTVUUID>진 개방 사륜안</CCTVUUID>
+<Pcount>한명 두명</Pcount>
+<InsertData>사람 지나간다</InsertData>
+<Update>2022-02-11</Update>
+<Write>한명 두명</Write>
+
+</Pcount>

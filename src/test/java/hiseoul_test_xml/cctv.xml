@@ -1,0 +1,24 @@
+
+<!DOCTYPE cctv[
+
+<!ELEMENT cctv (UUID, type, 해상도, 제조사)>
+<!ELEMENT UUID (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT 해상도 (#PCDATA)>
+<!ELEMENT 제조사 (#PCDATA)>
+
+
+
+<!ATTLIST UUID userUUID CDATA #REQUIRED>
+<!ATTLIST type usertype CDATA #REQUIRED>
+<!ATTLIST 해상도 해상도 CDATA #REQUIRED>
+<!ATTLIST 제조사 제조사 CDATA #REQUIRED>
+]>
+
+
+<cctv>
+<UUID>전설의 용사</UUID>
+<type>world class</type>
+<해상도>100k</해상도>
+<제조사>충원전자</제조사>
+</cctv>

@@ -1,0 +1,41 @@
+
+
+<!DOCTYPE region [
+
+
+
+<!ELEMENT region (UUID,name,address,Post,InsertData,Update,Write,Updater)>
+<!ELEMENT UUID (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT Post (#PCDATA)>
+<!ELEMENT InsertData (#PCDATA)>
+<!ELEMENT Update (#PCDATA)>
+<!ELEMENT Write (#PCDATA)>
+<!ELEMENT Updater (#PCDATA)>
+
+
+
+<!ATTLIST UUID userUUID CDATA #REQUIRED>
+<!ATTLIST name username CDATA #REQUIRED>
+<!ATTLIST address useraddress CDATA #REQUIRED>
+<!ATTLIST Post post CDATA #REQUIRED>
+<!ATTLIST InsertData userInsertData CDATA #REQUIRED>
+<!ATTLIST Update update CDATA #REQUIRED>
+<!ATTLIST Write writername CDATA #REQUIRED>
+<!ATTLIST Updater updatername CDATA #REQUIRED>
+]>
+
+
+
+<region>
+	<UUID>전설의 용사</UUID>
+	<name>파이리</name>
+	<address>포켓몬센터</address>
+	<Post>포스트 그래놀라</Post>
+	<InsertData>사람 지나간다</InsertData>
+	<Update>2022-02-11</Update>
+	<Write>한명 두명</Write>
+	<Updater>정충원</Updater>
+</region>
+
