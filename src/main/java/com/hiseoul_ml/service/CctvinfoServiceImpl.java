@@ -16,7 +16,7 @@ import com.hiseoul_ml.repositories.CctvinfoRepository;
 @Service
 public class CctvinfoServiceImpl implements CctvInfoService{
 	
-	private static final org.apache.logging.log4j.Logger=LogManager.getLogger(BoardServiceImpl.class)
+	private static final org.apache.logging.log4j.Logger logger=LogManager.getLogger(BoardServicelmpl.class);
 			
 			
 	@Autowired
@@ -48,9 +48,10 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 		}
 		
 		return result;
-		
+	}	
+	
 	@Override
-	public Result createCctvinfo(Cctvinfo cctvinfo) {
+	public Result createCctvInfo(Cctvinfo cctvinfo) {
 		cctvinfo=repository.save(cctvinfo);
 		com.hiseoul_ml.model.Result result=new Result();
 		result.setPayload(cctvinfo);
@@ -59,23 +60,23 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 	
 	@Override 
 	
-	public Result retrieveCctvinfoList() {
-		List<Cctvinfo> list=repository.findAllByOrderByCctv_uuidDesc();
+	public Result retrieveCctvInfoList() {
+		List<Cctvinfo> list=repository.findAllByOrderbycctv_uuidDesc();		
 		Result result= new Result();
 		result.setPayload(list);
 		return result;
-		}
+	}
 	
 	@Override
-	public Result retrieveCctvinfo(String cctv_uuid) {
+	public Result retrieveCctvInfo(String cctv_info_uuid) {
 		Optional<Cctvinfo> optionalCctvinfo= repository.findById(cctv_uuid);
-		com.hiseoul_ml.model.Result result= new Result();
+		Result result= new Result();
 		if(optionalCctvinfo.isPresent()) {
 		}else {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}
 		return result;
 	}
-	}
+	
 }
     
