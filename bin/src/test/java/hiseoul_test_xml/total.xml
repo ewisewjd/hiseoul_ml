@@ -1,0 +1,142 @@
+<!DOCTYPE MLDB[
+
+<!ELEMENT MLDB (MEMBER,WEB_CATE,CCTV_INFO+,CATE+ REGION+,P_CNT+)>
+
+<!ELEMENT MEMBER (
+
+<!ELEMENT WEB_CATE (
+
+
+<!ELEMENT CCTV_INFO (CCTV_UUID,CCTV_NAME,CCTV_TYPE,CCTV_RESOLUTION,CCTV_MARKER,CCTV_UPDATE*,CCTV_USE_YN)>
+	<!ATTLIST CCTV_INFO IN_DATE CDATA #REQUIRED>
+	<!ELEMENT CCTV_UUID (#PCDATA)>
+	<!ELEMENT CCTV_NAME (#PCDATA)>
+	<!ELEMENT CCTV_TYPE (#PCDATA)>
+	<!ELEMENT CCTV_RESOLUTION (#PCDATA)>
+	<!ELEMENT CCTV_MARKER (#PCDATA)>
+	<!ELEMENT CCTV_UPDATE (#PCDATA)>
+	<!ELEMENT CCTV_USE_YN (#PCDATA)>
+	
+<!ELEMENT CATE (CATE_UUID,CATE_NAME,CATE_TYPE,CATE_CONTENTS,CATE_UPDATE*,CATE_USE_YN)>
+	<!ATTLIST CATE_INFO IN_DATE CDATA #REQUIRED>
+	<!ELEMENT CATE_UUID (#PCDATA)>
+	<!ELEMENT CATE_NAME (#PCDATA)>
+	<!ELEMENT CCTV_TYPE (#PCDATA)>
+	<!ELEMENT CCTV_CONTENTS (#PCDATA)>
+	<!ELEMENT CCTV_UPDATE (#PCDATA)>
+	<!ELEMENT CCTV_CATE_USE_YN (#PCDATA)>
+		
+<!ELEMENT REGION (REGION_UUID,REGION_NAME,REGION_ADDR,REGION_POSTNUM,(REGION_NATION|REGION_NATIONCODE),REGION_UPDATE*,REGION_USE_YN)>
+	<!ATTLIST REGION_INFO IN_DATE CDATA #REQUIRED>
+	<!ELEMENT REGION_UUID (#PCDATA)>
+	<!ELEMENT REGION_NAME (#PCDATA)>
+	<!ELEMENT REGION_ADDR (#PCDATA)>
+	<!ELEMENT REGION_POSTNUM (#PCDATA)>
+	<!ELEMENT REGION_NATION (#PCDATA)>
+	<!ELEMENT REGION_NATIONCODE (#PCDATA)>
+	<!ELEMENT REGION_UPDATE (#PCDATA)>
+	<!ELEMENT REGION_USE_YN (#PCDATA)>
+	
+	
+<!ELEMENT P_CNT (P_CNT_UUID,P_CNT_NAME,P_CNT_PRE_CNT,P_CNT_COUNT,P_CNT_REGION_UUID,P_CNT_CATE_UUID,P_CNT_UPDATE*,P_CNT_USE_YN)>
+	<!ATTLIST P_CNT_INFO IN_DATE CDATA #REQUIRED>
+	<!ELEMENT P_CNT_UUID (#PCDATA)>
+	<!ELEMENT P_CNT_NAME (#PCDATA)>
+	<!ELEMENT P_CNT_PRE_CNT (#PCDATA)>
+	<!ELEMENT P_CNT_COUNT (#PCDATA)>
+	<!ELEMENT P_CNT_REGION_UUID (#PCDATA)>
+	<!ELEMENT P_CNT_CATE_UUID (#PCDATA)>
+	<!ELEMENT P_CNT_UPDATE* (#PCDATA)>
+	<!ELEMENT P_CNT_USE_YN (#PCDATA)>
+	
+]>
+	
+<!ELEMENT total (cate,region,Pcount,cctv)>
+
+<!ELEMENT cate (cate_name,cate_type,cate_UUID,cate_InsertData,cate_Update,cate_Write,cate_Updater,cate_Goal)>
+	<!ELEMENT cate_name (#PCDATA)>
+	<!ELEMENT cate_type (#PCDATA)>
+	<!ELEMENT cate_UUID (#PCDATA)>
+	<!ELEMENT cate_InsertData (#PCDATA)>
+	<!ELEMENT cate_Update (#PCDATA)>
+	<!ELEMENT cate_Write (#PCDATA)>
+	<!ELEMENT cate_Updater (#PCDATA)>
+	<!ELEMENT cate_Goal (#PCDATA)>
+
+
+<!ELEMENT region (region_UUID, region_name, address, Post,region_InsertData, region_Update, region_Write, region_Updater)>
+	<!ELEMENT region_UUID (#PCDATA)>
+	<!ELEMENT region_name (#PCDATA)>
+	<!ELEMENT address (#PCDATA)>
+	<!ELEMENT Post (#PCDATA)>
+	<!ELEMENT region_InsertData (#PCDATA)>
+	<!ELEMENT region_Update (#PCDATA)>
+	<!ELEMENT region_Write (#PCDATA)>
+	<!ELEMENT region_Updater (#PCDATA)>
+
+<!ELEMENT Pcount (timeset,Pcount_UUID,regionUUID,cateUUID,CCTVUUID,Pcount_Pcount,perPcount,Pcount_InsertData,Pcount_Update,Pcount_Write)>
+	<!ELEMENT timeset (#PCDATA)>
+	<!ELEMENT Pcount_UUID (#PCDATA)>
+	<!ELEMENT regionUUID (#PCDATA)>
+	<!ELEMENT cateUUID (#PCDATA)>
+	<!ELEMENT CCTVUUID (#PCDATA)>
+	<!ELEMENT Pcount_Pcount (#PCDATA)>
+	<!ELEMENT perPcount (#PCDATA)>
+	<!ELEMENT Pcount_InsertData (#PCDATA)>
+	<!ELEMENT Pcount_Update (#PCDATA)>
+	<!ELEMENT Pcount_Write (#PCDATA)>
+
+
+<!ELEMENT cctv (cctv_UUID,cctv_type,pixel,made)>
+	<!ELEMENT cctv_UUID (#PCDATA)>
+	<!ELEMENT cctv_type (#PCDATA)>
+	<!ELEMENT pixel (#PCDATA)>
+	<!ELEMENT made (#PCDATA)>
+
+]>
+
+<MLDB>
+	<cate>
+		<cate_name>피카츄</cate_name>
+		<cate_type>전기 포켓몬</cate_type>
+		<cate_UUID>전설의 용사</cate_UUID>
+		<cate_InsertData>사람 지나간다</cate_InsertData>
+		<cate_Update>2022-02-11</cate_Update>
+		<cate_Write>한명 두명</cate_Write>
+		<cate_Updater>정충원</cate_Updater>
+		<cate_Goal>사람수 카운트 완료</cate_Goal>
+	</cate>
+
+	<region>
+		<region_UUID>전설의 용사</region_UUID>
+		<region_name>파이리</region_name>
+		<address>포켓몬센터</address>
+		<Post>포스트 그래놀라</Post>
+		<region_InsertData>사람 지나간다</region_InsertData>
+		<region_Update>2022-02-11</region_Update>
+		<region_Write>한명 두명</region_Write>
+		<region_Updater>정충원</region_Updater>
+	</region>
+
+	<Pcount>
+		<timeset>호랑이 담배피던 시절</timeset>
+		<Pcount_UUID>전설의 용사</Pcount_UUID>
+		<regionUUID>이세카이</regionUUID>
+		<cateUUID>사륜안</cateUUID>
+		<CCTVUUID>진 개방 사륜안</CCTVUUID>
+		<Pcount_Pcount>한명 두명</Pcount_Pcount>
+		<perPcount>닥터 세닥</perPcount>
+		<Pcount_InsertData>사람 지나간다</Pcount_InsertData>
+		<Pcount_Update>2022-02-11</Pcount_Update>
+		<Pcount_Write>한명 두명</Pcount_Write>
+	</Pcount>
+
+
+	<cctv>
+		<cctv_UUID>전설의 용사</cctv_UUID>
+		<cctv_type>world class</cctv_type>
+		<pixel>100k</pixel>
+		<made>충원전자</made>
+	</cctv>
+
+</MLDB>

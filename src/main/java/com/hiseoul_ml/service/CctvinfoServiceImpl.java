@@ -68,7 +68,7 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 	}
 	
 	@Override
-	public Result retrieveCctvInfo(String cctv_info_uuid) {
+	public Result retrieveCctvInfo(String cctv_uuid) {
 		Optional<Cctvinfo> optionalCctvinfo= repository.findById(cctv_uuid);
 		Result result= new Result();
 		if(optionalCctvinfo.isPresent()) {
@@ -76,6 +76,12 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}
 		return result;
+	}
+
+	@Override
+	public Result updateCctvInfo(Cctvinfo cctvinfo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

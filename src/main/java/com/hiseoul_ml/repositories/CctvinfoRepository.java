@@ -10,7 +10,7 @@ import com.hiseoul_ml.model.Cctvinfo;
 
 @Repository
 
-public interface CctvinfoRepository extends JpaRepository<Cctvinfo, Timestamp>{
-	public List<Cctvinfo> findAllByOrderBybizmodel_wirte_dateDesc();
+public interface CctvinfoRepository extends JpaRepository<Cctvinfo, String>{
+	public List<Cctvinfo> findAllByOrderbycctv_uuidDesc();
 }
 
