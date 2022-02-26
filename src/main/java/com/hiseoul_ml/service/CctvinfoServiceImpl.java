@@ -2,6 +2,7 @@ package com.hiseoul_ml.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 		return result;
 	}
 	
-	public Result deleteCctvInfo(String cctv_uuid) {
+	public Result deleteCctvInfo(UUID cctv_uuid) {
 		Result result= new Result();
 		boolean isPresent= repository.findById(cctv_uuid).isPresent();
 		if (!isPresent) {
@@ -53,7 +54,7 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 	@Override
 	public Result createCctvInfo(Cctvinfo cctvinfo) {
 		cctvinfo=repository.save(cctvinfo);
-		com.hiseoul_ml.model.Result result=new Result();
+		Result result=new Result();
 		result.setPayload(cctvinfo);
 		return result;
 	}
@@ -61,15 +62,15 @@ public class CctvinfoServiceImpl implements CctvInfoService{
 	@Override 
 	
 	public Result retrieveCctvInfoList() {
-		List<Cctvinfo> list=repository.findAllByOrderbycctv_uuidDesc();		
-		Result result= new Result();
+		List<Cctvinfo> list=repository.findAllByOrderbycctvUuidDesc();
+		Result result=new Result();
 		result.setPayload(list);
 		return result;
 	}
 	
 	@Override
-	public Result retrieveCctvInfo(String cctv_uuid) {
-		Optional<Cctvinfo> optionalCctvinfo= repository.findById(cctv_uuid);
+	public Result retrieveCctvInfo(String cctvUuid) {
+		Optional<Cctvinfo> optionalCctvinfo= repository.findById(cctvUuid);
 		Result result= new Result();
 		if(optionalCctvinfo.isPresent()) {
 		}else {

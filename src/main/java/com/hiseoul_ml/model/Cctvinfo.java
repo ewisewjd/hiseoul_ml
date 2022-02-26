@@ -1,7 +1,9 @@
 package com.hiseoul_ml.model;
 
 import java.security.Timestamp;
+import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,24 +24,30 @@ public class Cctvinfo{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String cctv_uuid;
+	
 	private String cctv_name;
 	private String cctv_type;
 	private String cctv_model;
 	private String cctv_product_company;
 	private String cctv_resolution;
 	private String cctv_marker;
-	private Timestamp cctv_write_date;
+	
+	@Column(name="cctv_write_date")
+	 Timestamp cctvWriteDate;
+	
 	private Timestamp cctv_update_date;
 	private String cctv_use_yn;
 	private String cctv_active_status;
 	
-	public String getCctv_uuid() {
-		return cctv_uuid;
+	@Column(name= "cctv_uuid")
+	 UUID cctvUuid;
+		
+	public UUID getcctv_uuid() {
+		return cctvUuid;
 	}
 	
-	public void setCctv_uuid(String uuid){
-		this.cctv_uuid = uuid;
+	public void setcctv_uuid(UUID uuid){
+		this.cctvUuid = uuid;
 		}
 	
 	public String getCctv_name() {
@@ -91,11 +99,11 @@ public class Cctvinfo{
 		}
 	
 	public Timestamp getCctv_write_date() {
-		return cctv_write_date;
+		return cctvWriteDate;
 	}
 	
 	public void setCctv_write_date(Timestamp write_date){
-		this.cctv_write_date = write_date;
+		this.cctvWriteDate = write_date;
 		}
 
 	
@@ -123,6 +131,9 @@ public class Cctvinfo{
 	public String getCctv_active_status() {
 		return cctv_active_status;
 	}
+
+	
+	
 	
 
 	
