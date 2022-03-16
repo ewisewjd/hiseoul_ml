@@ -7,62 +7,62 @@ import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hiseoul.ml.enumpkg.ServiceResult;
-import com.hiseoul.ml.model.CctvInfo;
+import com.hiseoul.ml.model.Board;
 import com.hiseoul.ml.model.ErrorResponse;
 import com.hiseoul.ml.model.Result;
-import com.hiseoul.ml.repositories.CctvInfoRepository;
+import com.hiseoul.ml.repositories.BoardRepository;
 
 @Service
-public class CctvInfoServiceImpl implements CctvInfoService{
+public class BoardServiceImpl implements BoardService{
 	private static final org.apache.logging.log4j.Logger 
-	logger = LogManager.getLogger(CctvInfoServiceImpl.class);
+	logger = LogManager.getLogger(BoardServiceImpl.class);
 	@Autowired
-	CctvInfoRepository repository;
+	BoardRepository repository;
 	
-	public Result updateCctvInfo(CctvInfo cctvinfo) {
-		Optional<CctvInfo> search = repository.findById(cctvinfo.getCctvUuid());
+	public Result updateBoard(Board board) {
+		Optional<Board> search = repository.findById(board.getBoardno());
 		Result result = new Result();
 		if(search.isPresent()) {
-			cctvinfo = repository.save(cctvinfo);
-			result.setPayload(cctvinfo);
+			board = repository.save(board);
+			result.setPayload(board);
 		}else {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}
 		return result;
 	}
-	public Result deleteCctvInfo(String cctvUuid) {
+	public Result deleteBoard(int boardno) {
 		Result result = new Result();
-		boolean isPresent = repository.findById(cctvUuid).isPresent();
+		boolean isPresent = repository.findById(boardno).isPresent();
 		if(!isPresent) {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}else {
-			repository.deleteById(cctvUuid);
+			repository.deleteById(boardno);
 		}
 		return result;
 	}
 	
 	@Override
-	public Result createCctvInfo(CctvInfo cctvinfo) {
-		cctvinfo = repository.save(cctvinfo);
+	public Result createBoard(Board board) {
+		board = repository.save(board);
 		Result result = new Result();
-		result.setPayload(cctvinfo);
+		result.setPayload(board);
 		return result;
 	}
 	
 	@Override
-	public Result retrieveCctvInfoList() {
-		List<CctvInfo> list = repository.findAllByOrderByCctvUuidDesc();
+	public Result retrieveBoardList() {
+		List<Board> list = repository.findAllByOrderByBoardnoDesc();
 		Result result = new Result();
 		result.setPayload(list);
 		return result;
 	}
 	
 	@Override
-	public Result retrieveCctvInfo(String cctvUuid) {
-		Optional<CctvInfo> optionalCctvUuid = repository.findById(cctvUuid);
+	public Result retrieveBoard(int boardno) {
+		Optional<Board> optionalBoard = repository.findById(boardno);
 		Result result = new Result();
-		if(optionalCctvUuid.isPresent()) {
-			result.setPayload(optionalCctvUuid.get());
+		if(optionalBoard.isPresent()) {
+			result.setPayload(optionalBoard.get());
 		}else {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}

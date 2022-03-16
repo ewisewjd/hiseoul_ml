@@ -1,4 +1,4 @@
-package com.hiseoul_ml.controller;
+package com.hiseoul.ml.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,47 +11,47 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.hiseoul.ml.model.Board;
+import com.hiseoul.ml.model.Member;
 import com.hiseoul.ml.model.Result;
-import com.hiseoul.ml.repositories.BoardRepository;
-import com.hiseoul.ml.service.BoardService;
+import com.hiseoul.ml.repositories.MemberRepository;
+import com.hiseoul.ml.service.MemberService;
 
 @RestController
-@RequestMapping(value="restapi/board")
-public class BoardRestController{
+@RequestMapping(value="restapi/member")
+public class MemberRestController{
 	private static final org.apache.logging.log4j.Logger
-	logger = LogManager.getLogger(BoardRestController.class);
+	logger = LogManager.getLogger(MemberRestController.class);
 		@Autowired
-		BoardRepository repository;
+		MemberRepository repository;
 		
 		@Autowired
-		BoardService boardService;
+		MemberService boardService;
 		
 		@GetMapping
-		public Result retrieveBoardList() {
-			Result result = boardService.retrieveBoardList();
+		public Result retrieveMemberList() {
+			Result result = boardService.retrieveMemberList();
 			return result;
 		}
-		@GetMapping("/{boardno}")
-		public Result retrieveBoard(@PathVariable Integer boardno) {
-			Result result = boardService.retrieveBoard(boardno);
+		@GetMapping("/{no}")
+		public Result retrieveMember(@PathVariable Integer no) {
+			Result result = boardService.retrieveMember(no);
 		    return result;
 		}
 		@PostMapping
-		public Result createBoard(@ModelAttribute Board board) {
-			Result result = boardService.createBoard(board);
+		public Result createMember(@ModelAttribute Member member) {
+			Result result = boardService.createMember(member);
 			return result;
 		}
 		
 		@PutMapping
-		public Result updateBoard(@ModelAttribute Board board) {
-			Result result = boardService.updateBoard(board);
+		public Result updateMember(@ModelAttribute Member member) {
+			Result result = boardService.updateMember(member);
 			return result;
 		}
 		
 		@DeleteMapping
-		public Result deleteBoard(@RequestParam int boardno) {
-			Result result = boardService.deleteBoard(boardno);
+		public Result deleteMember(@RequestParam int no) {
+			Result result = boardService.deleteMember(no);
 			return result;
 		}
 		

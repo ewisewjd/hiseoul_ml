@@ -7,62 +7,62 @@ import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hiseoul.ml.enumpkg.ServiceResult;
-import com.hiseoul.ml.model.CctvInfo;
+import com.hiseoul.ml.model.MlCase;
 import com.hiseoul.ml.model.ErrorResponse;
 import com.hiseoul.ml.model.Result;
-import com.hiseoul.ml.repositories.CctvInfoRepository;
+import com.hiseoul.ml.repositories.MlCaseRepository;
 
 @Service
-public class CctvInfoServiceImpl implements CctvInfoService{
+public class MlCaseServiceImpl implements MlCaseService{
 	private static final org.apache.logging.log4j.Logger 
-	logger = LogManager.getLogger(CctvInfoServiceImpl.class);
+	logger = LogManager.getLogger(MlCaseServiceImpl.class);
 	@Autowired
-	CctvInfoRepository repository;
+	MlCaseRepository repository;
 	
-	public Result updateCctvInfo(CctvInfo cctvinfo) {
-		Optional<CctvInfo> search = repository.findById(cctvinfo.getCctvUuid());
+	public Result updateMlCase(MlCase mlcase) {
+		Optional<MlCase> search = repository.findById(mlcase.getMlcaseUuid());
 		Result result = new Result();
 		if(search.isPresent()) {
-			cctvinfo = repository.save(cctvinfo);
-			result.setPayload(cctvinfo);
+			mlcase = repository.save(mlcase);
+			result.setPayload(mlcase);
 		}else {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}
 		return result;
 	}
-	public Result deleteCctvInfo(String cctvUuid) {
+	public Result deleteMlCase(String mlCaseUuid) {
 		Result result = new Result();
-		boolean isPresent = repository.findById(cctvUuid).isPresent();
+		boolean isPresent = repository.findById(mlCaseUuid).isPresent();
 		if(!isPresent) {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}else {
-			repository.deleteById(cctvUuid);
+			repository.deleteById(mlCaseUuid);
 		}
 		return result;
 	}
 	
 	@Override
-	public Result createCctvInfo(CctvInfo cctvinfo) {
-		cctvinfo = repository.save(cctvinfo);
+	public Result createMlCase(MlCase mlcase) {
+		mlcase = repository.save(mlcase);
 		Result result = new Result();
-		result.setPayload(cctvinfo);
+		result.setPayload(mlcase);
 		return result;
 	}
 	
 	@Override
-	public Result retrieveCctvInfoList() {
-		List<CctvInfo> list = repository.findAllByOrderByCctvUuidDesc();
+	public Result retrieveMlCaseList() {
+		List<MlCase> list = repository.findAllByOrderByMlCaseUuidDesc();
 		Result result = new Result();
 		result.setPayload(list);
 		return result;
 	}
 	
 	@Override
-	public Result retrieveCctvInfo(String cctvUuid) {
-		Optional<CctvInfo> optionalCctvUuid = repository.findById(cctvUuid);
+	public Result retrieveMlCase(String mlCaseUuid) {
+		Optional<MlCase> optionalMlCase = repository.findById(mlCaseUuid);
 		Result result = new Result();
-		if(optionalCctvUuid.isPresent()) {
-			result.setPayload(optionalCctvUuid.get());
+		if(optionalMlCase.isPresent()) {
+			result.setPayload(optionalMlCase.get());
 		}else {
 			result.setError(new ErrorResponse(ServiceResult.NOTEXIST.toString()));
 		}

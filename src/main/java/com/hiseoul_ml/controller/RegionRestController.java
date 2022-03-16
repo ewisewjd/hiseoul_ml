@@ -1,4 +1,4 @@
-package com.hiseoul_ml.controller;
+package com.hiseoul.ml.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,47 +11,47 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.hiseoul.ml.model.Board;
+import com.hiseoul.ml.model.Region;
 import com.hiseoul.ml.model.Result;
-import com.hiseoul.ml.repositories.BoardRepository;
-import com.hiseoul.ml.service.BoardService;
+import com.hiseoul.ml.repositories.RegionRepository;
+import com.hiseoul.ml.service.RegionService;
 
 @RestController
-@RequestMapping(value="restapi/board")
-public class BoardRestController{
+@RequestMapping(value="restapi/region")
+public class RegionRestController{
 	private static final org.apache.logging.log4j.Logger
-	logger = LogManager.getLogger(BoardRestController.class);
+	logger = LogManager.getLogger(RegionRestController.class);
 		@Autowired
-		BoardRepository repository;
+		RegionRepository repository;
 		
 		@Autowired
-		BoardService boardService;
+		RegionService regionService;
 		
 		@GetMapping
-		public Result retrieveBoardList() {
-			Result result = boardService.retrieveBoardList();
+		public Result retrieveRegionList() {
+			Result result = regionService.retrieveRegionList();
 			return result;
 		}
-		@GetMapping("/{boardno}")
-		public Result retrieveBoard(@PathVariable Integer boardno) {
-			Result result = boardService.retrieveBoard(boardno);
+		@GetMapping("/{regionUuid}")
+		public Result retrieveRegion(@PathVariable String regionUuid) {
+			Result result = regionService.retrieveRegion(regionUuid);
 		    return result;
 		}
 		@PostMapping
-		public Result createBoard(@ModelAttribute Board board) {
-			Result result = boardService.createBoard(board);
+		public Result createRegion(@ModelAttribute Region region) {
+			Result result = regionService.createRegion(region);
 			return result;
 		}
 		
 		@PutMapping
-		public Result updateBoard(@ModelAttribute Board board) {
-			Result result = boardService.updateBoard(board);
+		public Result updateRegion(@ModelAttribute Region region) {
+			Result result = regionService.updateRegion(region);
 			return result;
 		}
 		
 		@DeleteMapping
-		public Result deleteBoard(@RequestParam int boardno) {
-			Result result = boardService.deleteBoard(boardno);
+		public Result deleteRegion(@RequestParam String regionUuid) {
+			Result result = regionService.deleteRegion(regionUuid);
 			return result;
 		}
 		

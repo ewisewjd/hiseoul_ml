@@ -1,4 +1,4 @@
-package com.hiseoul_ml.controller;
+package com.hiseoul.ml.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
